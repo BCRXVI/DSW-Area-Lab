@@ -5,25 +5,34 @@ def circleArea(radius):
     return radius * radius *math.pi
 
 def rectArea(base, height):
-    return 1
+    if base<0 or height<0:    
+        return-1
+    return base * height
 
 def trapArea(base1, base2, height):
-    return 1
+    return height *(base1 + base2) / 2
 
 def triArea(base,height):
-    return 1
+    return base * height / 2
     
-	
 class MyTest(unittest.TestCase): #using TestCase class from unittest module.
     def testCircleArea(self):
+        """returns the are of a circle with the given radius"""
         self.assertEqual(circleArea(5), 25*math.pi)
-        self.assertAlmostEqual(circleArea(3.25),*math.pi)
+        self.assertAlmostEqual(circleArea(3.25), 3.25*3.25*math.pi)
     def testRectArea(self):
-        selfassertEqual(rectArea(50,2),100)
-        selfassertEqual(rectArea(6,2),18)
+        """Returns the base and height"""
+        self.assertEqual(rectArea(-3,-2),-1)
+        self.assertAlmostEqual(rectArea(6,2),12)
     def testTrapArea(self):
-        selfassertEqual(trapArea(3,3), 6)
-        selfassertEqual(trapArea(10))
+        """ """
+        self.assertEqual(trapArea(50,2,1),26)
+        self.assertAlmostEqual(trapArea(6,4,3),15)
     def testTriArea(self):
-        selfassertEqual(triArea(5), 25*math.pi
-        selfassertEqual(triAre(10), 100*math.pi
+        self.assertEqual(triArea(3,20),3*20/2)
+        self.assertAlmostEqual(triArea(19,6),19*6/2)
+                
+        #Formula of a circle :radius * radius* PI
+        #Formula of a rectangle: base * height
+        #Formula of a trapezoid: height *   (base1 + base2) / 2
+        #Formula of a triangle: base *  height / 2
